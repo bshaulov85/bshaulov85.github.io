@@ -45,8 +45,7 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     };
 
     // Send the email using EmailJS
-    emailjs.send("service_dq1abjf", "template_34iqkzo",{
-                    message: formData})
+    emailjs.sendForm("service_dq1abjf", "template_34iqkzo", formData)
         .then(function(response) {
             alert("Thank you, your submission has been entered.");
             document.getElementById('userForm').reset();  // Reset the form
