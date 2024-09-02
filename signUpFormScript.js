@@ -10,6 +10,7 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
     // Get form values
+    const form = document.getElementById('userForm');
     const name = document.getElementById('name').value;
     const phone = document.getElementById('phone').value;
     const email = document.getElementById('email').value;
@@ -43,8 +44,10 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     }
 
 
+
+
     // Send the email using EmailJS
-    emailjs.sendForm("service_dq1abjf", "template_34iqkzo", this)
+    emailjs.sendForm("service_dq1abjf", "template_34iqkzo", form)
         .then(function(response) {
             alert("Thank you, your submission has been entered.");
             document.getElementById('userForm').reset();  // Reset the form
