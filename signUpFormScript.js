@@ -16,6 +16,12 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     const interestSelect = document.getElementById('interest');
     const interests = Array.from(interestSelect.selectedOptions).map(option => option.value);
 
+    // Validate Name
+    if (name.length < 5) {
+        alert("Your name should be at least 6 characters. Please enter your first and last name")
+        return;
+    }
+
     // Validate email
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailPattern.test(email)) {
@@ -36,16 +42,9 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
         return;
     }
 
-    // Prepare the data to be sent via EmailJS
-    const formData = {
-        name: name,
-        phone: phone,
-        email: email,
-        interest: interests.join(', ') // Convert the array of interests to a comma-separated string
-    };
 
     // Send the email using EmailJS
-    emailjs.sendForm("service_dq1abjf", "template_34iqkzo", formData)
+    emailjs.sendForm("service_dq1abjf", "template_34iqkzo", this)
         .then(function(response) {
             alert("Thank you, your submission has been entered.");
             document.getElementById('userForm').reset();  // Reset the form
