@@ -1,7 +1,10 @@
 // Initialize EmailJS with your User ID
-(function() {
-    emailjs.init("MNA2dV0DiN-UG7sE7"); // Replace with your EmailJS User ID
-})();
+
+(function(){
+    emailjs.init({
+      publicKey: "MNA2dV0DiN-UG7sE7",
+    });
+ })();
 
 document.getElementById('userForm').addEventListener('submit', function(event) {
     event.preventDefault();
