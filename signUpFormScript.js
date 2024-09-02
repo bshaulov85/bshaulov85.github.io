@@ -17,8 +17,7 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     const interests = Array.from(interestSelect.selectedOptions).map(option => option.value);
 
     // Validate Name
-    console.log(name);
-    if (name.length < 5) {
+    if (name.length < 6) {
         alert("Your name should be at least 6 characters. Please enter your first and last name")
         return;
     }
